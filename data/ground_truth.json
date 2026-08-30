@@ -1,0 +1,566 @@
+[
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_e44b315d79",
+      "bk_pay_e44b315d79",
+      "lg_pay_e44b315d79"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "timing_lag",
+    "match_group": [
+      "gw_pay_b716b090f0",
+      "bk_pay_b716b090f0",
+      "lg_pay_b716b090f0"
+    ],
+    "resolvable": true,
+    "note": "bank settlement lagged by 4 days"
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_47300e5b5e",
+      "bk_pay_47300e5b5e",
+      "lg_pay_47300e5b5e"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "unresolvable",
+    "match_group": [
+      "gw_pay_35e3b3856c"
+    ],
+    "resolvable": false,
+    "note": "no counterpart in bank or ledger, genuine exception"
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_e7b3ad2a06",
+      "bk_pay_e7b3ad2a06",
+      "lg_pay_e7b3ad2a06"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_02bd12bf86",
+      "bk_pay_02bd12bf86",
+      "lg_pay_02bd12bf86"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_a6fee2b526",
+      "bk_pay_a6fee2b526",
+      "lg_pay_a6fee2b526"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_557d734510",
+      "bk_pay_557d734510",
+      "lg_pay_557d734510"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "timing_lag",
+    "match_group": [
+      "gw_pay_0437e55e5e",
+      "bk_pay_0437e55e5e",
+      "lg_pay_0437e55e5e"
+    ],
+    "resolvable": true,
+    "note": "bank settlement lagged by 3 days"
+  },
+  {
+    "case": "timing_lag",
+    "match_group": [
+      "gw_pay_bef3334e7b",
+      "bk_pay_bef3334e7b",
+      "lg_pay_bef3334e7b"
+    ],
+    "resolvable": true,
+    "note": "bank settlement lagged by 4 days"
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_31af50c434",
+      "bk_pay_31af50c434",
+      "lg_pay_31af50c434"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "fee_mismatch",
+    "match_group": [
+      "gw_pay_6403491d6c",
+      "bk_pay_6403491d6c",
+      "lg_pay_6403491d6c"
+    ],
+    "resolvable": true,
+    "note": "bank amount is net of gateway fee"
+  },
+  {
+    "case": "partial_split",
+    "match_group": [
+      "gw_pay_9e866432bf",
+      "bk_pay_9e866432bf",
+      "bk_pay_9e866432bf_b",
+      "lg_pay_9e866432bf"
+    ],
+    "resolvable": true,
+    "note": "bank settled as two partial payments"
+  },
+  {
+    "case": "fee_mismatch",
+    "match_group": [
+      "gw_pay_cbf27ada09",
+      "bk_pay_cbf27ada09",
+      "lg_pay_cbf27ada09"
+    ],
+    "resolvable": true,
+    "note": "bank amount is net of gateway fee"
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_e91822c3e5",
+      "bk_pay_e91822c3e5",
+      "lg_pay_e91822c3e5"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "fee_mismatch",
+    "match_group": [
+      "gw_pay_5ad8645f3d",
+      "bk_pay_5ad8645f3d",
+      "lg_pay_5ad8645f3d"
+    ],
+    "resolvable": true,
+    "note": "bank amount is net of gateway fee"
+  },
+  {
+    "case": "fee_mismatch",
+    "match_group": [
+      "gw_pay_bbc7d7d6c7",
+      "bk_pay_bbc7d7d6c7",
+      "lg_pay_bbc7d7d6c7"
+    ],
+    "resolvable": true,
+    "note": "bank amount is net of gateway fee"
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_ad9316f380",
+      "bk_pay_ad9316f380",
+      "lg_pay_ad9316f380"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_ca8cfe2df6",
+      "bk_pay_ca8cfe2df6",
+      "lg_pay_ca8cfe2df6"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_6a1ac65938",
+      "bk_pay_6a1ac65938",
+      "lg_pay_6a1ac65938"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_3b682bc27c",
+      "bk_pay_3b682bc27c",
+      "lg_pay_3b682bc27c"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "duplicate",
+    "match_group": [
+      "gw_pay_ae03fea626",
+      "bk_pay_ae03fea626",
+      "lg_pay_ae03fea626"
+    ],
+    "resolvable": true,
+    "note": "bk_pay_ae03fea626_dup is a duplicate bank entry, should NOT be matched"
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_75a7224725",
+      "bk_pay_75a7224725",
+      "lg_pay_75a7224725"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "unresolvable",
+    "match_group": [
+      "gw_pay_f58475d82d"
+    ],
+    "resolvable": false,
+    "note": "no counterpart in bank or ledger, genuine exception"
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_59225328b0",
+      "bk_pay_59225328b0",
+      "lg_pay_59225328b0"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_9e3a708d7f",
+      "bk_pay_9e3a708d7f",
+      "lg_pay_9e3a708d7f"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_75243440d8",
+      "bk_pay_75243440d8",
+      "lg_pay_75243440d8"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "partial_split",
+    "match_group": [
+      "gw_pay_8622007b5f",
+      "bk_pay_8622007b5f",
+      "bk_pay_8622007b5f_b",
+      "lg_pay_8622007b5f"
+    ],
+    "resolvable": true,
+    "note": "bank settled as two partial payments"
+  },
+  {
+    "case": "timing_lag",
+    "match_group": [
+      "gw_pay_fb90464415",
+      "bk_pay_fb90464415",
+      "lg_pay_fb90464415"
+    ],
+    "resolvable": true,
+    "note": "bank settlement lagged by 5 days"
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_a6093e426c",
+      "bk_pay_a6093e426c",
+      "lg_pay_a6093e426c"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "fee_mismatch",
+    "match_group": [
+      "gw_pay_7a32f2b26d",
+      "bk_pay_7a32f2b26d",
+      "lg_pay_7a32f2b26d"
+    ],
+    "resolvable": true,
+    "note": "bank amount is net of gateway fee"
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_51b14827db",
+      "bk_pay_51b14827db",
+      "lg_pay_51b14827db"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "partial_split",
+    "match_group": [
+      "gw_pay_a8795f95e1",
+      "bk_pay_a8795f95e1",
+      "bk_pay_a8795f95e1_b",
+      "lg_pay_a8795f95e1"
+    ],
+    "resolvable": true,
+    "note": "bank settled as two partial payments"
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_5bf25bc5db",
+      "bk_pay_5bf25bc5db",
+      "lg_pay_5bf25bc5db"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "fee_mismatch",
+    "match_group": [
+      "gw_pay_c3a58c72d0",
+      "bk_pay_c3a58c72d0",
+      "lg_pay_c3a58c72d0"
+    ],
+    "resolvable": true,
+    "note": "bank amount is net of gateway fee"
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_fd16ee0ba7",
+      "bk_pay_fd16ee0ba7",
+      "lg_pay_fd16ee0ba7"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "timing_lag",
+    "match_group": [
+      "gw_pay_df80b3f736",
+      "bk_pay_df80b3f736",
+      "lg_pay_df80b3f736"
+    ],
+    "resolvable": true,
+    "note": "bank settlement lagged by 3 days"
+  },
+  {
+    "case": "duplicate",
+    "match_group": [
+      "gw_pay_6c060e39ea",
+      "bk_pay_6c060e39ea",
+      "lg_pay_6c060e39ea"
+    ],
+    "resolvable": true,
+    "note": "bk_pay_6c060e39ea_dup is a duplicate bank entry, should NOT be matched"
+  },
+  {
+    "case": "partial_split",
+    "match_group": [
+      "gw_pay_dd135967c0",
+      "bk_pay_dd135967c0",
+      "bk_pay_dd135967c0_b",
+      "lg_pay_dd135967c0"
+    ],
+    "resolvable": true,
+    "note": "bank settled as two partial payments"
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_33284854e2",
+      "bk_pay_33284854e2",
+      "lg_pay_33284854e2"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_244d77c4f6",
+      "bk_pay_244d77c4f6",
+      "lg_pay_244d77c4f6"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "unresolvable",
+    "match_group": [
+      "gw_pay_6c84161c46"
+    ],
+    "resolvable": false,
+    "note": "no counterpart in bank or ledger, genuine exception"
+  },
+  {
+    "case": "partial_split",
+    "match_group": [
+      "gw_pay_567dfb860e",
+      "bk_pay_567dfb860e",
+      "bk_pay_567dfb860e_b",
+      "lg_pay_567dfb860e"
+    ],
+    "resolvable": true,
+    "note": "bank settled as two partial payments"
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_18c9cfafb1",
+      "bk_pay_18c9cfafb1",
+      "lg_pay_18c9cfafb1"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "partial_split",
+    "match_group": [
+      "gw_pay_9789fe88e6",
+      "bk_pay_9789fe88e6",
+      "bk_pay_9789fe88e6_b",
+      "lg_pay_9789fe88e6"
+    ],
+    "resolvable": true,
+    "note": "bank settled as two partial payments"
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_64a3c291d2",
+      "bk_pay_64a3c291d2",
+      "lg_pay_64a3c291d2"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_4694da19bd",
+      "bk_pay_4694da19bd",
+      "lg_pay_4694da19bd"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_fe8b85ffa2",
+      "bk_pay_fe8b85ffa2",
+      "lg_pay_fe8b85ffa2"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_58ba15b72f",
+      "bk_pay_58ba15b72f",
+      "lg_pay_58ba15b72f"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "timing_lag",
+    "match_group": [
+      "gw_pay_dab0608439",
+      "bk_pay_dab0608439",
+      "lg_pay_dab0608439"
+    ],
+    "resolvable": true,
+    "note": "bank settlement lagged by 4 days"
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_42c112a1c5",
+      "bk_pay_42c112a1c5",
+      "lg_pay_42c112a1c5"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_92ca49aa66",
+      "bk_pay_92ca49aa66",
+      "lg_pay_92ca49aa66"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_a119d0cba7",
+      "bk_pay_a119d0cba7",
+      "lg_pay_a119d0cba7"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_9ef12acae2",
+      "bk_pay_9ef12acae2",
+      "lg_pay_9ef12acae2"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_a003368541",
+      "bk_pay_a003368541",
+      "lg_pay_a003368541"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "duplicate",
+    "match_group": [
+      "gw_pay_0f4a10c906",
+      "bk_pay_0f4a10c906",
+      "lg_pay_0f4a10c906"
+    ],
+    "resolvable": true,
+    "note": "bk_pay_0f4a10c906_dup is a duplicate bank entry, should NOT be matched"
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_c07bae46ef",
+      "bk_pay_c07bae46ef",
+      "lg_pay_c07bae46ef"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_38ecae2919",
+      "bk_pay_38ecae2919",
+      "lg_pay_38ecae2919"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_b27899a044",
+      "bk_pay_b27899a044",
+      "lg_pay_b27899a044"
+    ],
+    "resolvable": true
+  },
+  {
+    "case": "clean_match",
+    "match_group": [
+      "gw_pay_44dd0c6372",
+      "bk_pay_44dd0c6372",
+      "lg_pay_44dd0c6372"
+    ],
+    "resolvable": true
+  }
+]

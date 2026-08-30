@@ -1,0 +1,67 @@
+record_id,txn_ref,amount,date,narration
+bk_pay_8622007b5f_b,pay_8622007b5f,21407.68,2026-08-27T00:00:00,Partial settlement 2/2
+bk_pay_ca8cfe2df6,pay_ca8cfe2df6,14307.51,2026-08-13T00:00:00,Order #45382 - Subscription
+bk_pay_6c060e39ea_dup,pay_6c060e39ea,79008.83,2026-08-27T00:00:00,Order #50306 - Subscription (dup)
+bk_pay_a003368541,pay_a003368541,5621.77,2026-08-24T00:00:00,Order #54473 - Retail
+bk_pay_59225328b0,pay_59225328b0,63622.67,2026-08-14T00:00:00,Order #86484 - Marketplace
+bk_pay_ad9316f380,pay_ad9316f380,51971.57,2026-08-06T00:00:00,Order #80010 - Subscription
+bk_pay_a8795f95e1,pay_a8795f95e1,464.54,2026-08-24T00:00:00,Partial settlement 1/2
+bk_pay_e44b315d79,pay_e44b315d79,54531.56,2026-08-01T00:00:00,Order #46048 - Subscription
+bk_pay_c3a58c72d0,pay_c3a58c72d0,70188.64,2026-08-17T00:00:00,NEFT settlement 8c72d0
+bk_pay_38ecae2919,pay_38ecae2919,21608.64,2026-08-03T00:00:00,Order #68082 - Retail
+bk_pay_c07bae46ef,pay_c07bae46ef,12345.4,2026-08-06T00:00:00,Order #46509 - Marketplace
+bk_pay_3b682bc27c,pay_3b682bc27c,69942.32,2026-08-26T00:00:00,Order #51347 - Marketplace
+bk_pay_bbc7d7d6c7,pay_bbc7d7d6c7,58607.74,2026-08-22T00:00:00,NEFT settlement d7d6c7
+bk_pay_51b14827db,pay_51b14827db,9926.16,2026-08-14T00:00:00,Order #30730 - Marketplace
+bk_pay_567dfb860e_b,pay_567dfb860e,32795.47,2026-08-19T00:00:00,Partial settlement 2/2
+bk_pay_6c060e39ea,pay_6c060e39ea,79008.83,2026-08-27T00:00:00,Order #50306 - Subscription
+bk_pay_df80b3f736,pay_df80b3f736,51110.82,2026-08-19T00:00:00,Order #12552 - Retail
+bk_pay_7a32f2b26d,pay_7a32f2b26d,56942.44,2026-08-18T00:00:00,NEFT settlement f2b26d
+bk_pay_9e866432bf_b,pay_9e866432bf,24014.53,2026-08-03T00:00:00,Partial settlement 2/2
+bk_pay_e7b3ad2a06,pay_e7b3ad2a06,47925.21,2026-08-23T00:00:00,Order #95181 - Marketplace
+bk_pay_a6093e426c,pay_a6093e426c,45210.16,2026-08-18T00:00:00,Order #11504 - Retail
+bk_pay_9789fe88e6,pay_9789fe88e6,22511.68,2026-08-17T00:00:00,Partial settlement 1/2
+bk_pay_0437e55e5e,pay_0437e55e5e,8337.02,2026-08-07T00:00:00,Order #57052 - B2B Invoice
+bk_pay_fb90464415,pay_fb90464415,50896.56,2026-08-18T00:00:00,Order #60019 - Marketplace
+bk_pay_ae03fea626,pay_ae03fea626,23124.1,2026-08-07T00:00:00,Order #84341 - B2B Invoice
+bk_pay_9789fe88e6_b,pay_9789fe88e6,15007.78,2026-08-18T00:00:00,Partial settlement 2/2
+bk_pay_dd135967c0_b,pay_dd135967c0,2157.87,2026-08-20T00:00:00,Partial settlement 2/2
+bk_pay_9e3a708d7f,pay_9e3a708d7f,31088.7,2026-08-05T00:00:00,Order #76784 - Marketplace
+bk_pay_0f4a10c906_dup,pay_0f4a10c906,21511.46,2026-08-07T00:00:00,Order #80292 - Marketplace (dup)
+bk_pay_567dfb860e,pay_567dfb860e,49193.2,2026-08-18T00:00:00,Partial settlement 1/2
+bk_pay_a6fee2b526,pay_a6fee2b526,64619.22,2026-08-06T00:00:00,Order #65392 - B2B Invoice
+bk_pay_b27899a044,pay_b27899a044,4774.71,2026-08-18T00:00:00,Order #11934 - Retail
+bk_pay_fe8b85ffa2,pay_fe8b85ffa2,1107.63,2026-08-23T00:00:00,Order #92719 - Retail
+bk_pay_9e866432bf,pay_9e866432bf,36021.79,2026-08-02T00:00:00,Partial settlement 1/2
+bk_pay_6403491d6c,pay_6403491d6c,69173.0,2026-08-20T00:00:00,NEFT settlement 491d6c
+bk_pay_dd135967c0,pay_dd135967c0,3236.81,2026-08-19T00:00:00,Partial settlement 1/2
+bk_pay_64a3c291d2,pay_64a3c291d2,21448.02,2026-08-03T00:00:00,Order #54313 - Retail
+bk_pay_75243440d8,pay_75243440d8,8181.85,2026-08-02T00:00:00,Order #24371 - Subscription
+bk_pay_4694da19bd,pay_4694da19bd,50212.09,2026-08-08T00:00:00,Order #87128 - Subscription
+bk_pay_33284854e2,pay_33284854e2,62346.19,2026-08-27T00:00:00,Order #19071 - Subscription
+bk_pay_557d734510,pay_557d734510,23980.13,2026-08-07T00:00:00,Order #54118 - Retail
+bk_pay_5ad8645f3d,pay_5ad8645f3d,13959.38,2026-08-12T00:00:00,NEFT settlement 645f3d
+bk_pay_cbf27ada09,pay_cbf27ada09,64507.78,2026-08-03T00:00:00,NEFT settlement 7ada09
+bk_pay_ae03fea626_dup,pay_ae03fea626,23124.1,2026-08-07T00:00:00,Order #84341 - B2B Invoice (dup)
+bk_pay_18c9cfafb1,pay_18c9cfafb1,34214.85,2026-08-22T00:00:00,Order #95180 - B2B Invoice
+bk_pay_44dd0c6372,pay_44dd0c6372,78778.01,2026-08-28T00:00:00,Order #40982 - Subscription
+bk_pay_6a1ac65938,pay_6a1ac65938,58349.9,2026-08-27T00:00:00,Order #17331 - Subscription
+bk_pay_42c112a1c5,pay_42c112a1c5,18603.01,2026-08-05T00:00:00,Order #84847 - Marketplace
+bk_pay_bef3334e7b,pay_bef3334e7b,51514.85,2026-08-30T00:00:00,Order #15695 - Marketplace
+bk_pay_8622007b5f,pay_8622007b5f,32111.51,2026-08-26T00:00:00,Partial settlement 1/2
+bk_pay_9ef12acae2,pay_9ef12acae2,36292.39,2026-08-15T00:00:00,Order #17100 - Retail
+bk_pay_5bf25bc5db,pay_5bf25bc5db,43399.1,2026-08-04T00:00:00,Order #91959 - B2B Invoice
+bk_pay_fd16ee0ba7,pay_fd16ee0ba7,13414.92,2026-08-25T00:00:00,Order #31174 - Retail
+bk_pay_75a7224725,pay_75a7224725,18466.94,2026-08-16T00:00:00,Order #61856 - Marketplace
+bk_pay_58ba15b72f,pay_58ba15b72f,19845.58,2026-08-02T00:00:00,Order #53309 - Retail
+bk_pay_47300e5b5e,pay_47300e5b5e,50396.62,2026-08-02T00:00:00,Order #13905 - Retail
+bk_pay_a8795f95e1_b,pay_a8795f95e1,309.69,2026-08-25T00:00:00,Partial settlement 2/2
+bk_pay_31af50c434,pay_31af50c434,45811.27,2026-08-13T00:00:00,Order #20328 - B2B Invoice
+bk_pay_a119d0cba7,pay_a119d0cba7,8470.53,2026-08-22T00:00:00,Order #66498 - B2B Invoice
+bk_pay_244d77c4f6,pay_244d77c4f6,11349.08,2026-08-16T00:00:00,Order #82063 - Subscription
+bk_pay_92ca49aa66,pay_92ca49aa66,21033.27,2026-08-16T00:00:00,Order #63354 - Subscription
+bk_pay_0f4a10c906,pay_0f4a10c906,21511.46,2026-08-07T00:00:00,Order #80292 - Marketplace
+bk_pay_02bd12bf86,pay_02bd12bf86,19127.23,2026-08-19T00:00:00,Order #46463 - Retail
+bk_pay_e91822c3e5,pay_e91822c3e5,32620.67,2026-08-15T00:00:00,Order #93320 - B2B Invoice
+bk_pay_b716b090f0,pay_b716b090f0,19361.31,2026-08-28T00:00:00,Order #23434 - Retail
+bk_pay_dab0608439,pay_dab0608439,43946.19,2026-08-13T00:00:00,Order #97684 - Marketplace
