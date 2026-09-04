@@ -236,24 +236,15 @@ def _write_csv(path: str, rows: list, fieldnames: list):
         writer.writerows(rows)
 
 
-def main():
-    parser = argparse.ArgumentParser(description="Generate synthetic recovery agent data")
-    parser.add_argument("--seed",   type=int, default=42,  help="Random seed for reproducibility")
-    parser.add_argument("--n_pay",  type=int, default=40,  help="Number of failed payment records")
-    parser.add_argument("--n_cart", type=int, default=25,  help="Number of abandoned checkout records")
-    parser.add_argument("--n_inv",  type=int, default=20,  help="Number of overdue invoice records")
-    parser.add_argument("--outdir", type=str, default=".", help="Output directory for CSV + JSON files")
-    args = parser.parse_args()
-
+def generate_all(n_pay: int = 600, n_cart: int = 250, n_inv: int = 150, outdir: str = ".", seed: int = 42):
     import os
-    os.makedirs(args.outdir, exist_ok=True)
+    os.makedirs(outdir, exist_ok=True)
+    random.seed(seed)
+    rng = random.Random(seed)
 
-    random.seed(args.seed)
-    rng = random.Random(args.seed)
-
-    pay_rows,  pay_gt  = generate_failed_payments(args.n_pay,  rng)
-    cart_rows, cart_gt = generate_abandoned_checkouts(args.n_cart, rng)
-    inv_rows,  inv_gt  = generate_overdue_invoices(args.n_inv,  rng)
+    pay_rows,  pay_gt  = generate_failed_payments(n_pay,  rng)
+    cart_rows, cart_gt = generate_abandoned_checkouts(n_cart, rng)
+    inv_rows,  inv_gt  = generate_overdue_invoices(n_inv,  rng)
 
     # Shuffle within each type so order isn't predictable
     rng.shuffle(pay_rows)
@@ -261,40 +252,69 @@ def main():
     rng.shuffle(inv_rows)
 
     _write_csv(
-        f"{args.outdir}/failed_payments.csv", pay_rows,
+        f"{outdir}/failed_payments.csv", pay_rows,
         ["payment_id","customer_id","customer_email","customer_segment","amount","currency",
          "payment_method","card_last4","failure_code","retry_count","timestamp","do_not_contact"],
     )
     _write_csv(
-        f"{args.outdir}/abandoned_checkouts.csv", cart_rows,
+        f"{outdir}/abandoned_checkouts.csv", cart_rows,
         ["session_id","customer_id","customer_email","customer_segment","cart_value",
          "items_count","abandoned_at_step","timestamp","do_not_contact"],
     )
     _write_csv(
-        f"{args.outdir}/overdue_invoices.csv", inv_rows,
+        f"{outdir}/overdue_invoices.csv", inv_rows,
         ["invoice_id","customer_id","customer_email","customer_segment","amount","currency",
          "due_date","days_overdue","invoice_status","contact_attempts","timestamp","do_not_contact"],
     )
 
     ground_truth = pay_gt + cart_gt + inv_gt
-    with open(f"{args.outdir}/ground_truth.json", "w", encoding="utf-8") as f:
+    with open(f"{outdir}/ground_truth.json", "w", encoding="utf-8") as f:
         json.dump(ground_truth, f, indent=2)
 
-    # Summary
     total = len(pay_rows) + len(cart_rows) + len(inv_rows)
     total_risk = sum(g["amount"] for g in ground_truth)
     llm_cases  = sum(1 for g in ground_truth if g["needs_llm"])
     dnc_cases  = sum(1 for g in ground_truth if g["do_not_contact"])
-    print(f"Generated {total} synthetic events:")
-    print(f"  failed_payments.csv      -> {len(pay_rows)} rows")
-    print(f"  abandoned_checkouts.csv  -> {len(cart_rows)} rows")
-    print(f"  overdue_invoices.csv     -> {len(inv_rows)} rows")
-    print(f"  ground_truth.json        -> {len(ground_truth)} entries")
-    print(f"  Total revenue at risk    : INR {total_risk:,.2f}")
-    print(f"  Cases needing LLM        : {llm_cases}")
-    print(f"  Do-not-contact flagged   : {dnc_cases}")
+    summary = {
+        "total": total,
+        "n_pay": len(pay_rows),
+        "n_cart": len(cart_rows),
+        "n_inv": len(inv_rows),
+        "total_risk": total_risk,
+        "llm_cases": llm_cases,
+        "dnc_cases": dnc_cases
+    }
+    return summary
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Generate synthetic recovery agent data")
+    parser.add_argument("--seed",   type=int, default=42,  help="Random seed for reproducibility")
+    parser.add_argument("--n_pay",  type=int, default=600, help="Number of failed payment records")
+    parser.add_argument("--n_cart", type=int, default=250, help="Number of abandoned checkout records")
+    parser.add_argument("--n_inv",  type=int, default=150, help="Number of overdue invoice records")
+    parser.add_argument("--outdir", type=str, default=".", help="Output directory for CSV + JSON files")
+    args = parser.parse_args()
+
+    summary = generate_all(
+        n_pay=args.n_pay,
+        n_cart=args.n_cart,
+        n_inv=args.n_inv,
+        outdir=args.outdir,
+        seed=args.seed
+    )
+
+    print(f"Generated {summary['total']} synthetic events:")
+    print(f"  failed_payments.csv      -> {summary['n_pay']} rows")
+    print(f"  abandoned_checkouts.csv  -> {summary['n_cart']} rows")
+    print(f"  overdue_invoices.csv     -> {summary['n_inv']} rows")
+    print(f"  ground_truth.json        -> {summary['total']} entries")
+    print(f"  Total revenue at risk    : INR {summary['total_risk']:,.2f}")
+    print(f"  Cases needing LLM        : {summary['llm_cases']}")
+    print(f"  Do-not-contact flagged   : {summary['dnc_cases']}")
     print("NOTE: Do NOT read ground_truth.json from the matching engine.")
 
 
 if __name__ == "__main__":
     main()
+

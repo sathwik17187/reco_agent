@@ -1,6 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { RecoveryReport, CustomerRecord } from './types';
-import { fetchStats, fetchRecords, fetchPipelineStatus } from './api';
+import React, { useState, useEffect, useCallback } from 'react';
+import { RecoveryReport, CustomerRecord, LiveAgentState } from './types';
+import {
+  fetchStats,
+  fetchRecords,
+  fetchPipelineStatus,
+  fetchLiveState,
+  startLiveAgent,
+  pauseLiveAgent,
+  stepLiveAgent,
+  resetLiveAgent,
+  fastForwardAgent,
+  subscribeLiveStream,
+} from './api';
 import { Header } from './components/Header';
 import { Dashboard } from './components/Dashboard';
 import { CaseExplorer } from './components/CaseExplorer';
@@ -12,31 +23,36 @@ export const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'dashboard' | 'cases' | 'simulator' | 'policies'>('dashboard');
   const [stats, setStats] = useState<RecoveryReport | null>(null);
   const [records, setRecords] = useState<CustomerRecord[]>([]);
+  const [liveState, setLiveState] = useState<LiveAgentState | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [refreshing, setRefreshing] = useState<boolean>(false);
+  const [isProcessingStep, setIsProcessingStep] = useState<boolean>(false);
   const [selectedRecordId, setSelectedRecordId] = useState<string | null>(null);
   const [initialStatusFilter, setInitialStatusFilter] = useState<string | undefined>(undefined);
   const [pipelineRunning, setPipelineRunning] = useState<boolean>(false);
 
   const loadAllData = async () => {
     try {
-      const [statsResult, recordsResult, pipelineResult] = await Promise.allSettled([
+      const [statsResult, recordsResult, pipelineResult, liveResult] = await Promise.allSettled([
         fetchStats(),
         fetchRecords(),
         fetchPipelineStatus(),
+        fetchLiveState(),
       ]);
       if (statsResult.status === 'fulfilled') {
         setStats(statsResult.value);
-      } else {
-        console.error('Failed fetching stats:', statsResult.reason);
       }
       if (recordsResult.status === 'fulfilled') {
         setRecords(recordsResult.value.records);
-      } else {
-        console.error('Failed fetching records:', recordsResult.reason);
       }
       if (pipelineResult.status === 'fulfilled') {
         setPipelineRunning(pipelineResult.value.is_running);
+      }
+      if (liveResult.status === 'fulfilled') {
+        setLiveState(liveResult.value);
+        if (liveResult.value.current_index > 0 && liveResult.value.stats) {
+          setStats(liveResult.value.stats);
+        }
       }
     } catch (err) {
       console.error('Failed loading data:', err);
@@ -49,7 +65,50 @@ export const App: React.FC = () => {
   useEffect(() => {
     loadAllData();
 
-    // Auto-sync polling: detects when a background pipeline run finishes
+    // Subscribe to SSE live agent row stream
+    const unsubscribe = subscribeLiveStream((data) => {
+      if (data.type === 'init' || data.type === 'pause') {
+        if (data.state) {
+          setLiveState(data.state);
+          if (data.state.stats) setStats(data.state.stats);
+        }
+      } else if (data.type === 'reset') {
+        if (data.state) {
+          setLiveState(data.state);
+          if (data.state.stats) setStats(data.state.stats);
+        }
+        setRecords([]);
+      } else if (data.type === 'step') {
+        if (data.stats) {
+          setStats(data.stats);
+        }
+        if (data.record) {
+          setRecords((prev) => {
+            const exists = prev.some((r) => r.record_id === data.record.record_id);
+            if (exists) {
+              return prev.map((r) => (r.record_id === data.record.record_id ? data.record : r));
+            }
+            return [data.record, ...prev];
+          });
+        }
+        setLiveState((prev) => ({
+          ...(prev || { is_streaming: true, speed_ms: 250, total_records: data.progress?.total || 1000 }),
+          is_streaming: true,
+          current_index: data.progress?.current || (prev?.current_index ?? 0) + 1,
+          total_records: data.progress?.total || prev?.total_records || 1000,
+          progress_pct: data.progress?.pct ?? 0,
+          stats: data.stats || prev?.stats || ({} as any),
+          latest_record: data.record,
+        }));
+      } else if (data.type === 'complete') {
+        if (data.state) {
+          setLiveState(data.state);
+          if (data.state.stats) setStats(data.state.stats);
+        }
+      }
+    });
+
+    // Auto-sync polling for background python subprocess
     const interval = setInterval(async () => {
       try {
         const pStatus = await fetchPipelineStatus();
@@ -62,10 +121,88 @@ export const App: React.FC = () => {
       } catch {
         // Ignore background polling network glitches
       }
-    }, 3000);
+    }, 4000);
 
-    return () => clearInterval(interval);
+    return () => {
+      unsubscribe();
+      clearInterval(interval);
+    };
   }, []);
+
+  const handleStartLive = async (speed_ms?: number) => {
+    try {
+      const updated = await startLiveAgent(speed_ms);
+      setLiveState(updated);
+    } catch (err) {
+      console.error('Failed to start live stream:', err);
+    }
+  };
+
+  const handlePauseLive = async () => {
+    try {
+      const updated = await pauseLiveAgent();
+      setLiveState(updated);
+    } catch (err) {
+      console.error('Failed to pause live stream:', err);
+    }
+  };
+
+  const handleStepLive = async () => {
+    setIsProcessingStep(true);
+    try {
+      const res = await stepLiveAgent();
+      if (res.record && res.stats) {
+        setStats(res.stats);
+        setRecords((prev) => {
+          const exists = prev.some((r) => r.record_id === res.record.record_id);
+          if (exists) {
+            return prev.map((r) => (r.record_id === res.record.record_id ? res.record : r));
+          }
+          return [res.record, ...prev];
+        });
+        setLiveState((prev) => ({
+          ...(prev || { is_streaming: false, speed_ms: 250, total_records: res.progress?.total || 1000 }),
+          is_streaming: false,
+          current_index: res.progress?.current || (prev?.current_index ?? 0) + 1,
+          total_records: res.progress?.total || prev?.total_records || 1000,
+          progress_pct: res.progress?.pct ?? 0,
+          stats: res.stats,
+          latest_record: res.record,
+        }));
+      }
+    } catch (err) {
+      console.error('Failed to step live agent:', err);
+    } finally {
+      setIsProcessingStep(false);
+    }
+  };
+
+  const handleResetLive = async () => {
+    try {
+      const res = await resetLiveAgent();
+      setLiveState(res);
+      setStats(res.stats);
+      setRecords([]);
+    } catch (err) {
+      console.error('Failed to reset live stream:', err);
+    }
+  };
+
+  const handleFastForwardLive = async (count: number) => {
+    setIsProcessingStep(true);
+    try {
+      const res = await fastForwardAgent(count);
+      setLiveState(res);
+      setStats(res.stats);
+      const recs = await fetchRecords();
+      setRecords(recs.records);
+    } catch (err) {
+      console.error('Failed to fast-forward live stream:', err);
+    } finally {
+      setIsProcessingStep(false);
+    }
+  };
+
 
   const handleRefresh = () => {
     setRefreshing(true);
@@ -101,7 +238,17 @@ export const App: React.FC = () => {
         ) : (
           <>
             {activeTab === 'dashboard' && (
-              <Dashboard data={stats} onNavigateToCases={handleNavigateToCases} />
+              <Dashboard
+                data={stats}
+                onNavigateToCases={handleNavigateToCases}
+                liveState={liveState}
+                onStartLive={handleStartLive}
+                onPauseLive={handlePauseLive}
+                onStepLive={handleStepLive}
+                onResetLive={handleResetLive}
+                onFastForwardLive={handleFastForwardLive}
+                isProcessingStep={isProcessingStep}
+              />
             )}
 
             {activeTab === 'cases' && (

@@ -1,15 +1,33 @@
 import React from 'react';
 import { IndianRupee, TrendingUp, AlertTriangle, CheckCircle2, ShieldCheck, Target, BarChart3, PieChart as PieChartIcon } from 'lucide-react';
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, Legend, PieChart, Pie, Cell } from 'recharts';
-import { RecoveryReport } from '../types';
+import { RecoveryReport, LiveAgentState } from '../types';
 import { MetricCard } from './MetricCard';
+import { LivePlaybackControls } from './LivePlaybackControls';
 
 interface DashboardProps {
   data: RecoveryReport | null;
   onNavigateToCases: (filter?: { status?: string; category?: string }) => void;
+  liveState?: LiveAgentState | null;
+  onStartLive?: (speed_ms?: number) => void;
+  onPauseLive?: () => void;
+  onStepLive?: () => void;
+  onResetLive?: () => void;
+  onFastForwardLive?: (count: number) => void;
+  isProcessingStep?: boolean;
 }
 
-export const Dashboard: React.FC<DashboardProps> = ({ data, onNavigateToCases }) => {
+export const Dashboard: React.FC<DashboardProps> = ({
+  data,
+  onNavigateToCases,
+  liveState,
+  onStartLive,
+  onPauseLive,
+  onStepLive,
+  onResetLive,
+  onFastForwardLive,
+  isProcessingStep,
+}) => {
   if (!data) {
     return (
       <div className="p-12 text-center text-slate-400">
@@ -78,6 +96,20 @@ export const Dashboard: React.FC<DashboardProps> = ({ data, onNavigateToCases })
           <p className="text-xs text-sky-400 font-medium mt-0.5">{recovery_stats.total_records} Total Customer Events Processed</p>
         </div>
       </div>
+
+      {/* Live Playback Controls HUD */}
+      {onStartLive && onPauseLive && onStepLive && onResetLive && onFastForwardLive && (
+        <LivePlaybackControls
+          state={liveState || null}
+          onStart={onStartLive}
+          onPause={onPauseLive}
+          onStep={onStepLive}
+          onReset={onResetLive}
+          onFastForward={onFastForwardLive}
+          isProcessing={isProcessingStep}
+        />
+      )}
+
 
       {/* 4 Metric Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">

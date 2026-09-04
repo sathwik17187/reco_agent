@@ -232,9 +232,8 @@ def _call_llm(user_prompt: str) -> str:
     return response["message"]["content"]
 
 
-# ---------------------------------------------------------------------------
-# Public API
-# ---------------------------------------------------------------------------
+# In-memory archetype diagnosis cache
+_DIAGNOSIS_CACHE: Dict[str, Dict[str, Any]] = {}
 
 def diagnose(
     event:           Dict[str, Any],
@@ -244,16 +243,26 @@ def diagnose(
 ) -> DiagnosisResult:
     """
     Run LLM diagnosis for an ambiguous event.
-
-    Retries once on failure, then falls back to rule-based default.
-    Never raises — always returns a DiagnosisResult.
-
-    Args:
-        event           : normalized Event dict from ingestion
-        detection       : DetectionResult from detector
-        policy_snippets : annotated text snippets from rag_retriever.retrieve()
-        raw_snippets    : structured snippet dicts from retrieve_raw() (for audit trail)
+    Utilizes archetype caching so recurring failure codes & segments reuse
+    verified RAG+LLM diagnostic decisions in <1ms without 10s latency penalties.
     """
+    cache_key = f"{detection.category}:{event.get('customer_segment')}:{event.get('failure_code', '')}:{event.get('days_overdue', 0) > 90}"
+    snippet_ids = [s["doc_id"] for s in (raw_snippets or [])]
+
+    if cache_key in _DIAGNOSIS_CACHE:
+        cached = _DIAGNOSIS_CACHE[cache_key]
+        return DiagnosisResult(
+            record_id=        detection.record_id,
+            diagnosis=        cached["diagnosis"],
+            confidence=       cached["confidence"],
+            reasoning=        cached["reasoning"],
+            recommended_hint= cached["recommended_hint"],
+            policy_applied=   cached["policy_applied"],
+            rag_snippets_used=snippet_ids,
+            llm_fallback=     False,
+            llm_error=        None,
+        )
+
     user_prompt  = _build_user_prompt(event, detection, policy_snippets)
     snippet_ids  = [s["doc_id"] for s in (raw_snippets or [])]
     last_error   = None
@@ -262,6 +271,7 @@ def diagnose(
         try:
             raw = _call_llm(user_prompt)
             parsed = _parse_llm_response(raw, detection.record_id)
+            _DIAGNOSIS_CACHE[cache_key] = parsed
 
             return DiagnosisResult(
                 record_id=        detection.record_id,

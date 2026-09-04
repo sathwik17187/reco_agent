@@ -84,6 +84,7 @@ export interface CustomerRecord {
   };
   rules_fired?: string[];
   detection_reason?: string;
+  bandit_arm?: string | null;
 }
 
 export interface RecordDetailResponse {
@@ -130,3 +131,28 @@ export interface SimulationResponse {
     sms: string;
   };
 }
+
+export type PlaybackSpeed = 1000 | 500 | 250 | 100 | 30;
+
+export interface LiveAgentState {
+  is_streaming: boolean;
+  current_index: number;
+  total_records: number;
+  speed_ms: number;
+  progress_pct: number;
+  stats: RecoveryReport;
+  latest_record: CustomerRecord | null;
+  recent_records?: CustomerRecord[];
+}
+
+export interface LiveStepPayload {
+  type?: string;
+  record: CustomerRecord;
+  stats: RecoveryReport;
+  progress: {
+    current: number;
+    total: number;
+    pct: number;
+  };
+}
+
