@@ -26,6 +26,7 @@ sys.path.insert(0, BASE_DIR)
 from core.detector import detect
 from core.policy import get_intervention_sequence, POLICY_TABLE
 from core.hinglish_templates import format_sms_hinglish, format_email_hinglish, format_voice_ivr_hinglish
+from core.rl_bandit import get_bandit, extract_feature_vector
 
 app = FastAPI(
     title="Razorpay Revenue Recovery Agent API",
@@ -357,6 +358,10 @@ def simulate_event(req: SimulationRequest):
     whatsapp_preview = format_sms_hinglish("Valued Customer", req.amount, act_type, pay_link)
     sms_preview = format_sms_hinglish("Valued Customer", req.amount, "send_reminder", pay_link)
 
+    # Step 4: Contextual Bandit (LinUCB) Recommendation
+    bandit = get_bandit()
+    bandit_rec = bandit.select_arm(event, risk_level=risk_lvl, dnc_flag=req.dnc_flag)
+
     return {
         "event": event,
         "detection": {
@@ -370,11 +375,77 @@ def simulate_event(req: SimulationRequest):
             "intervention_sequence": sequence,
             "max_retries": max_retries
         },
+        "rl_bandit": bandit_rec,
         "previews": {
             "whatsapp": whatsapp_preview,
             "sms": sms_preview
         }
     }
+
+
+class RLRecommendRequest(BaseModel):
+    record_id: Optional[str] = None
+    event_type: str = "failed_payment"
+    amount: float = 5000.0
+    customer_segment: str = "retail"
+    risk_level: str = "MEDIUM"
+    dnc_flag: bool = False
+
+
+class RLFeedbackRequest(BaseModel):
+    arm: str
+    event_type: str = "failed_payment"
+    amount: float = 5000.0
+    customer_segment: str = "retail"
+    risk_level: str = "MEDIUM"
+    recovered: bool = True
+    amount_recovered: float = 5000.0
+    discount_offered: float = 0.0
+
+
+@app.get("/api/rl/bandit-stats")
+def get_bandit_stats():
+    """Retrieve LinUCB bandit training stats, arm counts, and expected rewards."""
+    bandit = get_bandit()
+    return bandit.get_summary()
+
+
+@app.post("/api/rl/recommend")
+def get_rl_recommendation(req: RLRecommendRequest):
+    """Get LinUCB bandit optimal action recommendation with exploration bonus."""
+    bandit = get_bandit()
+    event = {
+        "record_id": req.record_id or "sim_req",
+        "event_type": req.event_type,
+        "amount": req.amount,
+        "customer_segment": req.customer_segment,
+        "dnc_flag": req.dnc_flag,
+    }
+    result = bandit.select_arm(event, risk_level=req.risk_level, dnc_flag=req.dnc_flag)
+    return {
+        "event": event,
+        "recommendation": result
+    }
+
+
+@app.post("/api/rl/feedback")
+def submit_rl_feedback(req: RLFeedbackRequest):
+    """Provide online reward feedback to update the LinUCB bandit weights."""
+    bandit = get_bandit()
+    event = {
+        "amount": req.amount,
+        "customer_segment": req.customer_segment,
+        "event_type": req.event_type
+    }
+    bandit.update(
+        arm=req.arm,
+        event=event,
+        risk_level=req.risk_level,
+        recovered=req.recovered,
+        amount_recovered=req.amount_recovered,
+        discount_offered=req.discount_offered
+    )
+    return {"status": "updated", "arm": req.arm, "bandit_summary": bandit.get_summary()}
 
 
 def _execute_agent_subprocess():
