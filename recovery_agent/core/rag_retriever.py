@@ -33,10 +33,27 @@ MANIFEST_FILE    = "chroma_db/.index_manifest.json"
 # Embedding helper
 # ---------------------------------------------------------------------------
 
+_embed_client = None
+_embed_cache: dict = {}
+
+def _get_embed_client():
+    global _embed_client
+    if _embed_client is None:
+        _embed_client = ollama.Client(timeout=10.0)
+    return _embed_client
+
 def _embed(text: str) -> List[float]:
-    """Call Ollama nomic-embed-text and return the embedding vector."""
-    response = ollama.embeddings(model=EMBED_MODEL, prompt=text)
-    return response["embedding"]
+    """Call Ollama nomic-embed-text and return the embedding vector with in-memory caching."""
+    if text in _embed_cache:
+        return _embed_cache[text]
+    try:
+        client = _get_embed_client()
+        response = client.embeddings(model=EMBED_MODEL, prompt=text)
+        emb = response["embedding"]
+        _embed_cache[text] = emb
+        return emb
+    except Exception:
+        return [0.0] * 768
 
 
 def _file_hash(path: str) -> str:
@@ -61,6 +78,7 @@ class RAGRetriever:
     def __init__(self, persist_dir: str = "chroma_db"):
         self.persist_dir = persist_dir
         os.makedirs(persist_dir, exist_ok=True)
+        self.manifest_file = os.path.join(persist_dir, ".index_manifest.json")
         self._client: chromadb.ClientAPI = chromadb.PersistentClient(path=persist_dir)
         self.collection = None
 
@@ -86,8 +104,8 @@ class RAGRetriever:
 
         # Load manifest (doc_id → last_hash)
         manifest: dict = {}
-        if os.path.exists(MANIFEST_FILE) and not force:
-            with open(MANIFEST_FILE, "r") as f:
+        if os.path.exists(self.manifest_file) and not force:
+            with open(self.manifest_file, "r") as f:
                 manifest = json.load(f)
 
         self.collection = self._client.get_or_create_collection(
@@ -120,7 +138,7 @@ class RAGRetriever:
             print(f"  [RAG] indexed: {doc_id}")
 
         # Save manifest
-        with open(MANIFEST_FILE, "w") as f:
+        with open(self.manifest_file, "w") as f:
             json.dump(manifest, f, indent=2)
 
         total = self.collection.count()

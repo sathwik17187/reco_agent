@@ -210,9 +210,18 @@ def _parse_llm_response(raw: str, record_id: str) -> Dict[str, Any]:
 # Core LLM call
 # ---------------------------------------------------------------------------
 
+_ollama_client = None
+
+def _get_client():
+    global _ollama_client
+    if _ollama_client is None:
+        _ollama_client = ollama.Client(timeout=float(LLM_TIMEOUT))
+    return _ollama_client
+
 def _call_llm(user_prompt: str) -> str:
     """Single Ollama call. Raises on timeout or API error."""
-    response = ollama.chat(
+    client = _get_client()
+    response = client.chat(
         model=LLM_MODEL,
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
