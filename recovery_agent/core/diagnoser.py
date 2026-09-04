@@ -26,9 +26,13 @@ import ollama
 from core.detector import DetectionResult
 
 
-LLM_MODEL            = "llama3"
-LLM_TIMEOUT          = 60          # seconds
-CONFIDENCE_THRESHOLD = 0.65        # below this → exception, not match
+LLM_MODEL            = "qwen2.5:0.5b"   # default fast model (or "llama3")
+LLM_TIMEOUT          = 60              # seconds
+CONFIDENCE_THRESHOLD = 0.65            # below this → exception, not match
+
+def set_llm_model(model_name: str):
+    global LLM_MODEL
+    LLM_MODEL = model_name
 
 # Valid diagnosis values
 VALID_DIAGNOSES = {

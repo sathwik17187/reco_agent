@@ -23,6 +23,7 @@ from core.diagnoser    import diagnose, DiagnosisResult
 from core.policy       import get_intervention_sequence, describe_sequence
 from core.executor     import execute_sequence, ExecutionResult
 from core.audit_log    import AuditLog
+from core.langgraph_agent import run_langgraph_record, state_to_execution_result
 
 
 # ---------------------------------------------------------------------------
@@ -123,9 +124,9 @@ def run(
             fallback_note = " [FALLBACK]" if diag.llm_fallback else ""
             print(f"             -> {diag.diagnosis} (conf={diag.confidence:.2f}){fallback_note}")
 
-    # ── 5. Policy + execution + audit ────────────────────────────────────
+    # ── 5. Policy + LangGraph execution + audit ────────────────────────────
     if verbose:
-        print("[5/5] Executing intervention sequences...")
+        print("[5/5] Executing LangGraph state machine intervention sequences...")
 
     results: List[PipelineResult] = []
 
@@ -144,8 +145,9 @@ def run(
             # Get intervention sequence
             sequence = get_intervention_sequence(detection, diagnosis)
 
-            # Execute sequence
-            exec_result = execute_sequence(event, sequence, detection)
+            # Execute record via LangGraph state machine
+            final_state = run_langgraph_record(event, detection, diagnosis, sequence)
+            exec_result = state_to_execution_result(final_state, event)
 
             # Log each action
             for action_result in exec_result.actions_taken:

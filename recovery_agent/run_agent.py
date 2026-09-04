@@ -25,6 +25,7 @@ import time
 # Ensure recovery_agent root is on path when run from repo root
 sys.path.insert(0, os.path.dirname(__file__))
 
+from core.diagnoser import set_llm_model
 from core.orchestrator import run as orchestrate
 from core.scorer       import score_and_report
 
@@ -50,6 +51,10 @@ def parse_args():
         help="Path to ground_truth.json for accuracy scoring (optional)",
     )
     p.add_argument(
+        "--model", default="qwen2.5:0.5b",
+        help="Ollama model for diagnosis (default: qwen2.5:0.5b for speed, or llama3)",
+    )
+    p.add_argument(
         "--verbose", action="store_true", default=True,
         help="Print progress to stdout",
     )
@@ -68,12 +73,15 @@ def main():
                  os.path.join(data_dir, "ground_truth.json")
 
     print("=" * 60)
-    print("  Revenue Recovery Agent")
+    print("  Revenue Recovery Agent (LangGraph + Ollama)")
     print("=" * 60)
     print(f"  Data dir    : {data_dir}")
     print(f"  Output dir  : {output_dir}")
+    print(f"  Model       : {args.model}")
     print(f"  GT path     : {gt_path if os.path.exists(gt_path) else '(not found)'}")
     print("=" * 60)
+
+    set_llm_model(args.model)
 
     t0 = time.time()
 
