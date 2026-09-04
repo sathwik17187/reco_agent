@@ -100,36 +100,3 @@
             <img src="docs/images/case_auditor.png" alt="Case Explorer and RAG Trace"><br>
             <img src="docs/images/live_simulator.png" alt="Live Event Simulator">
     </div>
-    <hr>
-    <div id="Team">
-        <h2>Team Details</h2>
-        <p>Team Number: <br>25AACR17</p>
-        <p>Senior Mentor: <br>Vaishnavi Addla</p>
-        <p>Junior Mentor: <br>Dheeraj Chandra</p>
-        <p>Team Member 1: <br>Sai Sathwik</p>
-        <p>Team Member 2: <br>Chandu Chethan</p>
-        <p>Team Member 3: <br>Divya</p>
-        <p>Team Member 4: <br>Anvitha</p>
-    </div>
-    <hr>
-    <div id="cont">
-        <h2>Contribution</h2>
-          <strong>This section provides instructions and details on how to submit a contribution via a pull request. It is important to follow these guidelines to make sure your pull request is accepted.</strong> 
-        <br>
-            1. Before choosing to propose changes to this project, it is advisable to go through the readme.md file of the project to get the philosophy and the motive that went behind this project. The pull request should align with the philosophy and the motive of the original poster of this project. <br>
-            2. To add your changes, make sure that the programming language in which you are proposing the changes should be the same as the programming language that has been used in the project. The versions of the programming language and the libraries(if any) used should also match with the original code. <br>
-            3. Write a documentation on the changes that you are proposing. The documentation should include the problems you have noticed in the code(if any), the changes you would like to propose, the reason for these changes, and sample test cases. Remember that the topics in the documentation are strictly not limited to the topics aforementioned, but are just an inclusion. <br>
-            4. Submit a pull request via <a href="https://gist.github.com/mikepea/863f63d6e37281e329f8">Git etiquette</a>
-        <br>
-    </div>
-    <hr>
-    <div id="improve">
-        <h2>Improvements</h2>
-        <ul>
-            <li>Integrate dynamic WhatsApp Business API and conversational bots for interactive repayment links and EMI inquiries.</li>
-            <li>Incorporate real-time ML credit score lookups to dynamically adjust discount authorization bands based on merchant margin thresholds.</li>
-            <li>Add multi-gateway smart retry routing to dynamically swap payment aggregators during bank network outages.</li>
-            <li>Enhance Hinglish voice synthesis with real-time bidirectional telephony connectors (e.g., Twilio / Exotel).</li>
-            <li>Implement automated merchant escalation webhooks into Slack, Zendesk, and Salesforce for high-value VIP accounts.</li>
-        </ul>
-    </div>
