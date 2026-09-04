@@ -1,0 +1,18 @@
+POLICY: Lost or Stolen Card Failures
+
+card_lost_stolen is a hard decline. The customer's card has been reported
+to the bank as lost or stolen. Automated recovery is not possible.
+
+Recommended intervention:
+1. Do NOT retry — the card is permanently blocked by the issuing bank.
+2. Do NOT send a standard payment failure notification.
+3. Escalate to human team immediately.
+4. Human agent contacts the customer (phone preferred) to:
+   a. Verify the customer is aware their card was blocked.
+   b. Offer to complete the transaction via a different payment method.
+   c. Confirm no fraud occurred on their account.
+5. If the customer cannot be reached within 48h, send a secure email asking
+   them to contact us to complete their purchase.
+
+Security note: Never mention "lost or stolen" in automated communication —
+this may alarm the customer unnecessarily if the block was a bank error.

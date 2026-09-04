@@ -1,0 +1,23 @@
+POLICY: Soft Decline — Probable Churn or Dispute Risk
+
+Some do_not_honor failures indicate the customer has proactively blocked the
+merchant or is in the process of filing a dispute. Aggressive outreach in these
+cases worsens outcomes.
+
+Signals that suggest CHURN or DISPUTE risk:
+- Customer has 2+ prior do_not_honor failures in last 30 days
+- Customer contacted support in last 7 days about a billing issue
+- Payment amount is much higher than customer's historical average (potential
+  friendly fraud)
+- Customer has recently requested a refund or filed a complaint
+
+Recommended intervention:
+1. Do NOT retry automatically.
+2. Escalate to human review team within 4 hours.
+3. Human reviewer checks for open disputes before any outreach.
+4. If dispute confirmed: halt all recovery efforts immediately and route to
+   dispute management workflow.
+5. If no dispute: human makes one outreach attempt (phone call preferred).
+
+Never send automated dunning emails for probable_churn cases — it can
+be used against the merchant in a chargeback.

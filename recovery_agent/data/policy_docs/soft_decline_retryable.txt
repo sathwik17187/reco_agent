@@ -1,0 +1,20 @@
+POLICY: Soft Decline — Retryable Cases (do_not_honor)
+
+A do_not_honor response is ambiguous — it can indicate a temporary bank-side
+restriction, a fraud hold, or a customer-initiated block. Context matters.
+
+Signals that suggest RETRYABLE:
+- First-time failure for this customer (no prior do_not_honor history)
+- Amount is consistent with customer's historical transaction range
+- No prior dispute history
+- Payment method: card (not UPI — UPI do_not_honor is almost always hard)
+
+Recommended intervention for retryable cases:
+1. Wait 24 hours, then retry once.
+2. If retry succeeds: close. If fails: send a polite notification to customer
+   ("Your payment could not be processed. Please contact your bank or try a
+   different payment method.")
+3. Do not retry more than once for do_not_honor without customer action.
+
+Segment note: Enterprise customers — escalate to human for any do_not_honor
+regardless of retry eligibility, given the relationship risk.

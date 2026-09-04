@@ -1,0 +1,14 @@
+POLICY: Mildly Overdue Invoices (1-7 days past due)
+
+Invoices 1-7 days past due often represent oversight rather than inability to pay.
+Most customers in this bucket respond to a single polite reminder.
+
+Recommended intervention:
+1. Send a friendly invoice reminder email on day 1 or 2:
+   "Just a reminder — Invoice #XXX for INR YYY was due on [date]."
+   Include the invoice PDF and a payment link.
+2. If unpaid after 5 days: send one follow-up (email or SMS, not both).
+3. Do not call or escalate for invoices < 7 days overdue unless enterprise
+   customer with a specific SLA arrangement.
+
+Tone: Friendly, not threatening. No late fee mention until day 8.

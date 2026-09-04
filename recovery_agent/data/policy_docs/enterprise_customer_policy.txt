@@ -1,0 +1,18 @@
+POLICY: Enterprise Customer Recovery — Special Handling
+
+Enterprise customers (typically B2B, invoice amounts > INR 50,000, or flagged as
+enterprise segment) require relationship-first recovery, not automated dunning.
+
+Key differences from retail/SMB:
+1. No automated SMS for enterprise customers — email only, or phone via account manager.
+2. Any payment failure > INR 50,000 must trigger an account manager notification
+   within 4 hours, even if automated retry is also in progress.
+3. Do not offer generic payment plans — negotiate custom terms via account manager.
+4. Dispute handling: Assign a dedicated point-of-contact from the enterprise support team.
+5. Dunning emails for enterprise accounts must be reviewed and approved by the account
+   manager before sending — do not use standard retail templates.
+6. Recovery timeline for enterprise: up to 30 days before escalating to collections,
+   versus 14 days for retail/SMB.
+
+Priority: Enterprise accounts represent high LTV — err on the side of human
+relationship management over aggressive automated recovery.

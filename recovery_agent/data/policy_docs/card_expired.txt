@@ -1,0 +1,16 @@
+POLICY: Expired Card Failures
+
+When a payment fails with card_expired, the customer must update their card details.
+Automated retries will always fail — do not retry without new card information.
+
+Recommended intervention:
+1. Send a card update link immediately (within 1 hour of failure).
+   - Retail/SMB: email + SMS with secure card update link.
+   - Enterprise: email only; include account manager CC if invoice > INR 50,000.
+2. Wait 72 hours. If card not updated, send one reminder (email).
+3. Wait another 72 hours. If still no update, escalate to human for manual follow-up.
+4. Hard stop: If the customer has not updated their card within 14 days,
+   mark as "pending customer action" and stop automated outreach.
+
+Do NOT retry the original payment — it will fail until the card is updated.
+Do NOT send more than 3 automated contacts total.

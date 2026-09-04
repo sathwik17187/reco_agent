@@ -1,0 +1,16 @@
+POLICY: Severely Overdue Invoices (31-90 days past due)
+
+Invoices 31-90 days past due require assertive but still relationship-preserving
+intervention. Automated dunning is no longer sufficient.
+
+Recommended intervention:
+1. Immediately offer a structured payment plan (3-6 installments).
+2. Assign to a human collections representative within 48 hours.
+3. Human representative makes one phone call attempt.
+4. If payment plan accepted: halt further automated outreach, monitor installments.
+5. If no response after 14 days of human outreach: send a formal "Notice of
+   Overdue Account" letter (email + physical if enterprise).
+6. Day 90: If still unpaid with no payment plan in place, initiate write-off review.
+
+Do not threaten legal action in automated communications — this must come
+from the human collections team after internal approval.

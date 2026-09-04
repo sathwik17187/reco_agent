@@ -1,0 +1,22 @@
+POLICY: Payment Retry Rules and Limits
+
+Retrying failed payments without guardrails increases decline rates and can
+trigger issuer-side blocks on the merchant ID.
+
+Hard limits on retries:
+1. Maximum 3 retry attempts per original payment failure.
+2. Minimum 24-hour gap between retries (except gateway_timeout: immediate retry allowed once).
+3. Never retry a hard decline: card_lost_stolen, do_not_honor on UPI, fraudulent_transaction.
+4. Never retry after a customer has initiated a refund or dispute.
+5. If a retry fails with a DIFFERENT error code than the original, stop and diagnose
+   the new code before retrying again — the situation may have changed.
+
+Retry windows by failure type:
+- gateway_timeout: immediate, then 30 minutes, then stop.
+- card_expired: no retry until card updated.
+- insufficient_funds: day 3, day 7, day 14.
+- do_not_honor (retryable): day 1 only.
+- invalid_cvv: no server-side retry.
+
+Logging: Every retry attempt must be logged with: original_payment_id, retry_number,
+attempt_timestamp, outcome, new_failure_code (if applicable).

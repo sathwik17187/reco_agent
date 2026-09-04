@@ -1,0 +1,18 @@
+POLICY: Invalid CVV Failures
+
+An invalid_cvv failure means the customer entered an incorrect card security code.
+The card itself is valid — this is a data entry error, not a bank block.
+
+Recommended intervention:
+1. Send an immediate, friendly notification (email + SMS):
+   "Your payment didn't go through — the security code entered didn't match.
+    Please try again with the correct CVV from the back of your card."
+   Include a direct link to retry the payment.
+2. Wait 24 hours. If no retry attempted: send one reminder.
+3. If still no retry after 48 hours: close the recovery attempt.
+   (Customer has chosen not to complete the purchase.)
+4. Do NOT retry server-side — CVV validation requires customer input.
+
+Note: Multiple invalid_cvv failures from the same card in a short window
+may indicate card testing fraud. Flag for fraud team review if 3+ failures
+occur within 10 minutes.

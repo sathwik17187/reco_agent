@@ -1,0 +1,16 @@
+POLICY: Moderately Overdue Invoices (8-30 days past due)
+
+Invoices 8-30 days overdue indicate the customer may be experiencing cash flow
+issues or is deprioritising payment. Intervention escalates slightly.
+
+Recommended intervention:
+1. Day 8: Send invoice reminder with payment link. Mention that late fees
+   may apply per contract terms.
+2. Day 15: Follow up. Offer a payment plan (2-3 installments) if the invoice
+   is > INR 10,000.
+3. Day 25: Final reminder before escalation. Clearly state that the account
+   will be escalated if not resolved by day 30.
+4. Day 30: If unpaid, escalate to account manager / collections team.
+
+Contact limit: Maximum 1 contact per 7 days for this bucket.
+Segment note: Enterprise accounts — escalate to account manager at day 15, not day 30.

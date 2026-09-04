@@ -1,0 +1,17 @@
+POLICY: Gateway Timeout Failures
+
+When a payment fails with a gateway_timeout error code, this indicates a transient
+infrastructure issue rather than a customer problem. The card was never charged.
+
+Recommended intervention:
+1. Attempt one immediate retry (within 5 minutes of original failure). Do not notify
+   the customer for this first retry — it is invisible to them.
+2. If the immediate retry also fails with a timeout, wait 30 minutes and retry once more.
+3. If the second retry fails for any reason (including a different error code), send
+   a brief SMS/email to the customer: "We had a technical hiccup processing your
+   payment. Please try again or contact support."
+4. Do NOT retry more than 3 times total for gateway timeout failures.
+5. Do NOT classify gateway_timeout as a hard decline — it is always soft.
+
+Priority: HIGH (no customer action needed for first retry; fast recovery path).
+Segment note: No segment-specific variation. Apply uniformly across retail, SMB, enterprise.

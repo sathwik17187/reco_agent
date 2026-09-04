@@ -1,0 +1,852 @@
+[
+  {
+    "record_id": "pay_bdd640fb06",
+    "event_type": "failed_payment",
+    "gt_category": "SOFT_DECLINE",
+    "gt_disposition": "llm_diagnosis_required",
+    "needs_llm": true,
+    "do_not_contact": false,
+    "amount": 62731.82,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_bc8960a923",
+    "event_type": "failed_payment",
+    "gt_category": "INSUFFICIENT_FUNDS",
+    "gt_disposition": "retry_payment_3d",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 20159.85,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_8b9d2434e4",
+    "event_type": "failed_payment",
+    "gt_category": "GATEWAY_TIMEOUT",
+    "gt_disposition": "retry_payment_immediate",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 50292.95,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_07a0ca6e08",
+    "event_type": "failed_payment",
+    "gt_category": "CARD_LOST",
+    "gt_disposition": "escalate_human",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 13638.02,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_9a1de64481",
+    "event_type": "failed_payment",
+    "gt_category": "CARD_EXPIRED",
+    "gt_disposition": "send_card_update_link",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 72113.27,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_a65ed389b7",
+    "event_type": "failed_payment",
+    "gt_category": "INVALID_CVV",
+    "gt_disposition": "send_correction_link",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 7158.62,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_96da1dac72",
+    "event_type": "failed_payment",
+    "gt_category": "SOFT_DECLINE",
+    "gt_disposition": "llm_diagnosis_required",
+    "needs_llm": true,
+    "do_not_contact": false,
+    "amount": 72774.35,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_c241330b01",
+    "event_type": "failed_payment",
+    "gt_category": "SOFT_DECLINE",
+    "gt_disposition": "llm_diagnosis_required",
+    "needs_llm": true,
+    "do_not_contact": false,
+    "amount": 31780.29,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_4722938957",
+    "event_type": "failed_payment",
+    "gt_category": "SOFT_DECLINE",
+    "gt_disposition": "llm_diagnosis_required",
+    "needs_llm": true,
+    "do_not_contact": false,
+    "amount": 62111.21,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_562b0f79c3",
+    "event_type": "failed_payment",
+    "gt_category": "SOFT_DECLINE",
+    "gt_disposition": "llm_diagnosis_required",
+    "needs_llm": true,
+    "do_not_contact": false,
+    "amount": 69942.32,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_5be6128e18",
+    "event_type": "failed_payment",
+    "gt_category": "INVALID_CVV",
+    "gt_disposition": "send_correction_link",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 27090.28,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_0b1f9163ce",
+    "event_type": "failed_payment",
+    "gt_category": "CARD_EXPIRED",
+    "gt_disposition": "send_card_update_link",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 63451.57,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_ec1b8ca1f9",
+    "event_type": "failed_payment",
+    "gt_category": "INSUFFICIENT_FUNDS",
+    "gt_disposition": "retry_payment_3d",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 42202.09,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_d453dd324b",
+    "event_type": "failed_payment",
+    "gt_category": "SOFT_DECLINE",
+    "gt_disposition": "llm_diagnosis_required",
+    "needs_llm": true,
+    "do_not_contact": false,
+    "amount": 5868.09,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_93cd59bf5c",
+    "event_type": "failed_payment",
+    "gt_category": "SOFT_DECLINE",
+    "gt_disposition": "llm_diagnosis_required",
+    "needs_llm": true,
+    "do_not_contact": false,
+    "amount": 75264.62,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_a9488d990b",
+    "event_type": "failed_payment",
+    "gt_category": "INSUFFICIENT_FUNDS",
+    "gt_disposition": "retry_payment_3d",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 774.23,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_146d3f31fc",
+    "event_type": "failed_payment",
+    "gt_category": "INVALID_CVV",
+    "gt_disposition": "send_correction_link",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 71621.06,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_4729473961",
+    "event_type": "failed_payment",
+    "gt_category": "GATEWAY_TIMEOUT",
+    "gt_disposition": "retry_payment_immediate",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 51110.82,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_29a3b2e95d",
+    "event_type": "failed_payment",
+    "gt_category": "CARD_LOST",
+    "gt_disposition": "escalate_human",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 5394.68,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_4458a885ab",
+    "event_type": "failed_payment",
+    "gt_category": "SOFT_DECLINE",
+    "gt_disposition": "llm_diagnosis_required",
+    "needs_llm": true,
+    "do_not_contact": false,
+    "amount": 11349.08,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_88bd64072b",
+    "event_type": "failed_payment",
+    "gt_category": "INVALID_CVV",
+    "gt_disposition": "send_correction_link",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 58793.81,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_451b4cf361",
+    "event_type": "failed_payment",
+    "gt_category": "INSUFFICIENT_FUNDS",
+    "gt_disposition": "retry_payment_3d",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 10724.85,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_d7c524a553",
+    "event_type": "failed_payment",
+    "gt_category": "GATEWAY_TIMEOUT",
+    "gt_disposition": "retry_payment_immediate",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 60312.56,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_ce177b4e08",
+    "event_type": "failed_payment",
+    "gt_category": "CARD_EXPIRED",
+    "gt_disposition": "send_card_update_link",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 57028.62,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_3602f8ac10",
+    "event_type": "failed_payment",
+    "gt_category": "SOFT_DECLINE",
+    "gt_disposition": "llm_diagnosis_required",
+    "needs_llm": true,
+    "do_not_contact": false,
+    "amount": 8470.53,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_366eb16f50",
+    "event_type": "failed_payment",
+    "gt_category": "GATEWAY_TIMEOUT",
+    "gt_disposition": "retry_payment_immediate",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 57399.3,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_a491f0b2ea",
+    "event_type": "failed_payment",
+    "gt_category": "SOFT_DECLINE",
+    "gt_disposition": "llm_diagnosis_required",
+    "needs_llm": true,
+    "do_not_contact": false,
+    "amount": 16689.36,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_3f22faf823",
+    "event_type": "failed_payment",
+    "gt_category": "GATEWAY_TIMEOUT",
+    "gt_disposition": "retry_payment_immediate",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 68777.88,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_95a76d79bf",
+    "event_type": "failed_payment",
+    "gt_category": "INVALID_CVV",
+    "gt_disposition": "send_correction_link",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 34841.99,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_5cabcc9766",
+    "event_type": "failed_payment",
+    "gt_category": "INSUFFICIENT_FUNDS",
+    "gt_disposition": "retry_payment_3d",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 78790.78,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_827050a823",
+    "event_type": "failed_payment",
+    "gt_category": "CARD_EXPIRED",
+    "gt_disposition": "send_card_update_link",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 82355.94,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_dc713d960c",
+    "event_type": "failed_payment",
+    "gt_category": "CARD_EXPIRED",
+    "gt_disposition": "send_card_update_link",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 78188.21,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_cac5b68c28",
+    "event_type": "failed_payment",
+    "gt_category": "CARD_EXPIRED",
+    "gt_disposition": "send_card_update_link",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 50780.47,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_61b1cd2262",
+    "event_type": "failed_payment",
+    "gt_category": "SOFT_DECLINE",
+    "gt_disposition": "llm_diagnosis_required",
+    "needs_llm": true,
+    "do_not_contact": false,
+    "amount": 49820.31,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_405cacec87",
+    "event_type": "failed_payment",
+    "gt_category": "SOFT_DECLINE",
+    "gt_disposition": "llm_diagnosis_required",
+    "needs_llm": true,
+    "do_not_contact": false,
+    "amount": 22944.43,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_ae270da702",
+    "event_type": "failed_payment",
+    "gt_category": "CARD_EXPIRED",
+    "gt_disposition": "send_card_update_link",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 84670.15,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_c039871089",
+    "event_type": "failed_payment",
+    "gt_category": "INVALID_CVV",
+    "gt_disposition": "send_correction_link",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 31725.04,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_1c8eaee957",
+    "event_type": "failed_payment",
+    "gt_category": "CARD_EXPIRED",
+    "gt_disposition": "send_card_update_link",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 79233.39,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_00d4af5974",
+    "event_type": "failed_payment",
+    "gt_category": "SOFT_DECLINE",
+    "gt_disposition": "llm_diagnosis_required",
+    "needs_llm": true,
+    "do_not_contact": false,
+    "amount": 24308.4,
+    "resolvable": true
+  },
+  {
+    "record_id": "pay_2dbc2134c3",
+    "event_type": "failed_payment",
+    "gt_category": "GATEWAY_TIMEOUT",
+    "gt_disposition": "retry_payment_immediate",
+    "needs_llm": false,
+    "do_not_contact": true,
+    "amount": 54097.04,
+    "resolvable": false
+  },
+  {
+    "record_id": "sess_a013ac6ede",
+    "event_type": "abandoned_checkout",
+    "gt_category": "HIGH_INTENT_ABANDON",
+    "gt_disposition": "send_abandon_reminder",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 22288.68,
+    "resolvable": true
+  },
+  {
+    "record_id": "sess_9be578c781",
+    "event_type": "abandoned_checkout",
+    "gt_category": "LOW_INTENT_ABANDON",
+    "gt_disposition": "skip",
+    "needs_llm": false,
+    "do_not_contact": true,
+    "amount": 28362.52,
+    "resolvable": false
+  },
+  {
+    "record_id": "sess_295b4715c3",
+    "event_type": "abandoned_checkout",
+    "gt_category": "MEDIUM_INTENT_ABANDON",
+    "gt_disposition": "send_abandon_reminder",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 3997.88,
+    "resolvable": true
+  },
+  {
+    "record_id": "sess_87c5421eec",
+    "event_type": "abandoned_checkout",
+    "gt_category": "HIGH_INTENT_ABANDON",
+    "gt_disposition": "send_abandon_reminder",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 20525.59,
+    "resolvable": true
+  },
+  {
+    "record_id": "sess_04fc6d827d",
+    "event_type": "abandoned_checkout",
+    "gt_category": "MEDIUM_INTENT_ABANDON",
+    "gt_disposition": "send_abandon_reminder",
+    "needs_llm": false,
+    "do_not_contact": true,
+    "amount": 25965.25,
+    "resolvable": false
+  },
+  {
+    "record_id": "sess_fc3e058be0",
+    "event_type": "abandoned_checkout",
+    "gt_category": "HIGH_INTENT_ABANDON",
+    "gt_disposition": "send_abandon_reminder",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 25949.11,
+    "resolvable": true
+  },
+  {
+    "record_id": "sess_e0c53cb83d",
+    "event_type": "abandoned_checkout",
+    "gt_category": "HIGH_INTENT_ABANDON",
+    "gt_disposition": "send_abandon_reminder",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 25786.08,
+    "resolvable": true
+  },
+  {
+    "record_id": "sess_bb5e4bcf15",
+    "event_type": "abandoned_checkout",
+    "gt_category": "HIGH_INTENT_ABANDON",
+    "gt_disposition": "send_abandon_reminder",
+    "needs_llm": false,
+    "do_not_contact": true,
+    "amount": 24651.98,
+    "resolvable": false
+  },
+  {
+    "record_id": "sess_c2b6d2c5fa",
+    "event_type": "abandoned_checkout",
+    "gt_category": "HIGH_INTENT_ABANDON",
+    "gt_disposition": "send_abandon_reminder",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 8502.37,
+    "resolvable": true
+  },
+  {
+    "record_id": "sess_a8e56e0c20",
+    "event_type": "abandoned_checkout",
+    "gt_category": "HIGH_INTENT_ABANDON",
+    "gt_disposition": "send_abandon_reminder",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 29438.26,
+    "resolvable": true
+  },
+  {
+    "record_id": "sess_43dac0432a",
+    "event_type": "abandoned_checkout",
+    "gt_category": "HIGH_INTENT_ABANDON",
+    "gt_disposition": "send_abandon_reminder",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 17501.57,
+    "resolvable": true
+  },
+  {
+    "record_id": "sess_f6e07cc06c",
+    "event_type": "abandoned_checkout",
+    "gt_category": "HIGH_INTENT_ABANDON",
+    "gt_disposition": "send_abandon_reminder",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 23635.56,
+    "resolvable": true
+  },
+  {
+    "record_id": "sess_badcc32ac1",
+    "event_type": "abandoned_checkout",
+    "gt_category": "HIGH_INTENT_ABANDON",
+    "gt_disposition": "send_abandon_reminder",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 5864.35,
+    "resolvable": true
+  },
+  {
+    "record_id": "sess_fec21bbe66",
+    "event_type": "abandoned_checkout",
+    "gt_category": "MEDIUM_INTENT_ABANDON",
+    "gt_disposition": "send_abandon_reminder",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 13052.66,
+    "resolvable": true
+  },
+  {
+    "record_id": "sess_7394988f84",
+    "event_type": "abandoned_checkout",
+    "gt_category": "HIGH_INTENT_ABANDON",
+    "gt_disposition": "send_abandon_reminder",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 9416.68,
+    "resolvable": true
+  },
+  {
+    "record_id": "sess_568cc69b10",
+    "event_type": "abandoned_checkout",
+    "gt_category": "MEDIUM_INTENT_ABANDON",
+    "gt_disposition": "send_abandon_reminder",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 12729.3,
+    "resolvable": true
+  },
+  {
+    "record_id": "sess_96a402f23a",
+    "event_type": "abandoned_checkout",
+    "gt_category": "HIGH_INTENT_ABANDON",
+    "gt_disposition": "send_abandon_reminder",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 16528.53,
+    "resolvable": true
+  },
+  {
+    "record_id": "sess_a18ff6b6b5",
+    "event_type": "abandoned_checkout",
+    "gt_category": "HIGH_INTENT_ABANDON",
+    "gt_disposition": "send_abandon_reminder",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 13365.22,
+    "resolvable": true
+  },
+  {
+    "record_id": "sess_080aadfbe7",
+    "event_type": "abandoned_checkout",
+    "gt_category": "LOW_INTENT_ABANDON",
+    "gt_disposition": "skip",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 15560.47,
+    "resolvable": false
+  },
+  {
+    "record_id": "sess_474a493b3c",
+    "event_type": "abandoned_checkout",
+    "gt_category": "HIGH_INTENT_ABANDON",
+    "gt_disposition": "send_abandon_reminder",
+    "needs_llm": false,
+    "do_not_contact": true,
+    "amount": 24235.57,
+    "resolvable": false
+  },
+  {
+    "record_id": "sess_b92da22b21",
+    "event_type": "abandoned_checkout",
+    "gt_category": "LOW_INTENT_ABANDON",
+    "gt_disposition": "skip",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 12550.34,
+    "resolvable": false
+  },
+  {
+    "record_id": "sess_c8dcd19f3e",
+    "event_type": "abandoned_checkout",
+    "gt_category": "HIGH_INTENT_ABANDON",
+    "gt_disposition": "send_abandon_reminder",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 7470.74,
+    "resolvable": true
+  },
+  {
+    "record_id": "sess_1825bc5430",
+    "event_type": "abandoned_checkout",
+    "gt_category": "HIGH_INTENT_ABANDON",
+    "gt_disposition": "send_abandon_reminder",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 5441.42,
+    "resolvable": true
+  },
+  {
+    "record_id": "sess_6c6fa6115a",
+    "event_type": "abandoned_checkout",
+    "gt_category": "LOW_INTENT_ABANDON",
+    "gt_disposition": "skip",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 4173.51,
+    "resolvable": false
+  },
+  {
+    "record_id": "sess_0dde29a6ba",
+    "event_type": "abandoned_checkout",
+    "gt_category": "HIGH_INTENT_ABANDON",
+    "gt_disposition": "send_abandon_reminder",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 24487.19,
+    "resolvable": true
+  },
+  {
+    "record_id": "inv_56dc8907ba",
+    "event_type": "overdue_invoice",
+    "gt_category": "LIKELY_UNCOLLECTABLE",
+    "gt_disposition": "llm_diagnosis_required",
+    "needs_llm": true,
+    "do_not_contact": false,
+    "amount": 179544.41,
+    "resolvable": false
+  },
+  {
+    "record_id": "inv_894a05e430",
+    "event_type": "overdue_invoice",
+    "gt_category": "LIKELY_UNCOLLECTABLE",
+    "gt_disposition": "llm_diagnosis_required",
+    "needs_llm": true,
+    "do_not_contact": false,
+    "amount": 56184.96,
+    "resolvable": false
+  },
+  {
+    "record_id": "inv_474ebc192e",
+    "event_type": "overdue_invoice",
+    "gt_category": "SEVERELY_OVERDUE",
+    "gt_disposition": "offer_payment_plan",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 16419.19,
+    "resolvable": true
+  },
+  {
+    "record_id": "inv_134c6c92ec",
+    "event_type": "overdue_invoice",
+    "gt_category": "MODERATELY_OVERDUE",
+    "gt_disposition": "send_invoice_reminder",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 28536.44,
+    "resolvable": true
+  },
+  {
+    "record_id": "inv_8ce21ea3db",
+    "event_type": "overdue_invoice",
+    "gt_category": "SEVERELY_OVERDUE",
+    "gt_disposition": "offer_payment_plan",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 83558.71,
+    "resolvable": true
+  },
+  {
+    "record_id": "inv_8a63f881ff",
+    "event_type": "overdue_invoice",
+    "gt_category": "LIKELY_UNCOLLECTABLE",
+    "gt_disposition": "llm_diagnosis_required",
+    "needs_llm": true,
+    "do_not_contact": true,
+    "amount": 78505.89,
+    "resolvable": false
+  },
+  {
+    "record_id": "inv_c0e9ab30ed",
+    "event_type": "overdue_invoice",
+    "gt_category": "SEVERELY_OVERDUE",
+    "gt_disposition": "offer_payment_plan",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 2173.32,
+    "resolvable": true
+  },
+  {
+    "record_id": "inv_7b3a4e3e7c",
+    "event_type": "overdue_invoice",
+    "gt_category": "SEVERELY_OVERDUE",
+    "gt_disposition": "offer_payment_plan",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 149755.62,
+    "resolvable": true
+  },
+  {
+    "record_id": "inv_0f02bad0e7",
+    "event_type": "overdue_invoice",
+    "gt_category": "SEVERELY_OVERDUE",
+    "gt_disposition": "offer_payment_plan",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 97642.76,
+    "resolvable": true
+  },
+  {
+    "record_id": "inv_63f2ae24fc",
+    "event_type": "overdue_invoice",
+    "gt_category": "SEVERELY_OVERDUE",
+    "gt_disposition": "offer_payment_plan",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 33843.9,
+    "resolvable": true
+  },
+  {
+    "record_id": "inv_747b6dbac8",
+    "event_type": "overdue_invoice",
+    "gt_category": "MILDLY_OVERDUE",
+    "gt_disposition": "send_invoice_reminder",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 113314.0,
+    "resolvable": true
+  },
+  {
+    "record_id": "inv_bb026576f5",
+    "event_type": "overdue_invoice",
+    "gt_category": "SEVERELY_OVERDUE",
+    "gt_disposition": "offer_payment_plan",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 11006.64,
+    "resolvable": true
+  },
+  {
+    "record_id": "inv_27a0c3d77c",
+    "event_type": "overdue_invoice",
+    "gt_category": "LIKELY_UNCOLLECTABLE",
+    "gt_disposition": "llm_diagnosis_required",
+    "needs_llm": true,
+    "do_not_contact": false,
+    "amount": 56373.07,
+    "resolvable": false
+  },
+  {
+    "record_id": "inv_0ef8c2d6f7",
+    "event_type": "overdue_invoice",
+    "gt_category": "MILDLY_OVERDUE",
+    "gt_disposition": "send_invoice_reminder",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 150055.83,
+    "resolvable": true
+  },
+  {
+    "record_id": "inv_bf7b539b0f",
+    "event_type": "overdue_invoice",
+    "gt_category": "MODERATELY_OVERDUE",
+    "gt_disposition": "send_invoice_reminder",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 189972.73,
+    "resolvable": true
+  },
+  {
+    "record_id": "inv_7a0ecfea95",
+    "event_type": "overdue_invoice",
+    "gt_category": "SEVERELY_OVERDUE",
+    "gt_disposition": "offer_payment_plan",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 134222.31,
+    "resolvable": true
+  },
+  {
+    "record_id": "inv_284d82e587",
+    "event_type": "overdue_invoice",
+    "gt_category": "LIKELY_UNCOLLECTABLE",
+    "gt_disposition": "llm_diagnosis_required",
+    "needs_llm": true,
+    "do_not_contact": false,
+    "amount": 121572.65,
+    "resolvable": false
+  },
+  {
+    "record_id": "inv_d9f195d014",
+    "event_type": "overdue_invoice",
+    "gt_category": "MILDLY_OVERDUE",
+    "gt_disposition": "send_invoice_reminder",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 22511.65,
+    "resolvable": true
+  },
+  {
+    "record_id": "inv_acdabacc11",
+    "event_type": "overdue_invoice",
+    "gt_category": "MODERATELY_OVERDUE",
+    "gt_disposition": "send_invoice_reminder",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 188352.65,
+    "resolvable": true
+  },
+  {
+    "record_id": "inv_e3e9de99f1",
+    "event_type": "overdue_invoice",
+    "gt_category": "SEVERELY_OVERDUE",
+    "gt_disposition": "offer_payment_plan",
+    "needs_llm": false,
+    "do_not_contact": false,
+    "amount": 139741.41,
+    "resolvable": true
+  }
+]

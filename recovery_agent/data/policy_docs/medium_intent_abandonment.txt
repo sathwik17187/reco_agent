@@ -1,0 +1,15 @@
+POLICY: Medium-Intent Cart Abandonment (payment_info step)
+
+Customers who abandon at the payment_info step have expressed purchase intent
+but did not complete card/payment details. Reasons vary: price sensitivity,
+payment method not available, distraction.
+
+Recommended intervention:
+1. Send one recovery email within 2 hours: "You left something behind."
+   Include cart summary and a "Return to checkout" link.
+2. Do NOT offer a discount automatically (it trains customers to abandon for discounts).
+3. If cart value > INR 10,000: add a note about EMI/pay-later options available.
+4. Send at most 1 recovery email. Close after 48 hours if no conversion.
+
+Do NOT escalate or call for medium-intent abandonment — the cost/benefit
+does not justify it.

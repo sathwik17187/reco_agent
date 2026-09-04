@@ -1,0 +1,22 @@
+POLICY: Payment Plan / EMI Offer Guidelines
+
+Offering a payment plan can recover revenue that would otherwise be lost, but
+offering it too early trains customers to request it as a default.
+
+When to offer:
+- insufficient_funds on invoices > INR 5,000: After 2 failed retries.
+- moderately/severely overdue invoices > INR 10,000: As a standard option.
+- SMB customers with cash flow signals: Proactively on day 7 of overdue.
+- Never offer a payment plan on the first contact (except severely overdue enterprise).
+
+Standard plans:
+- Retail: 2-3 installments over 30-60 days, 0% interest.
+- SMB: 3-6 installments over 60-90 days, 0% interest up to INR 50,000.
+- Enterprise: Negotiated by account manager, custom terms.
+
+Process:
+1. Customer clicks "Payment Plan" link in dunning email → enters agreement flow.
+2. System creates installment schedule and sends confirmation.
+3. Installments are auto-charged on scheduled dates with standard retry rules.
+4. If an installment fails: send immediate notification and pause the plan;
+   do not auto-retry the installment.

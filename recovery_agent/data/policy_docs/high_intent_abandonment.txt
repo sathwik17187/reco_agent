@@ -1,0 +1,18 @@
+POLICY: High-Intent Cart Abandonment (review/confirm step)
+
+Customers who abandon at the review or confirm step have completed all
+data entry — they have high intent and encountered a last-minute hesitation.
+Recovery rates for this segment are typically 25-40%.
+
+Recommended intervention:
+1. Send a recovery email within 1 hour of abandonment. Include:
+   - Exact cart contents (item names, quantities, total)
+   - Direct "Complete your purchase" link (pre-filled cart)
+   - Social proof if available ("Join 10,000+ customers who ordered this week")
+2. If no conversion in 24 hours: send one more email with a time-limited offer
+   (5% discount or free shipping if margin allows).
+3. If no conversion in 48 hours: close. Do not send more than 2 recovery emails.
+
+Segment note:
+- Enterprise / B2B carts > INR 25,000: Skip discount, assign to sales rep instead.
+- Retail carts < INR 500: Close after first email — recovery cost exceeds margin.

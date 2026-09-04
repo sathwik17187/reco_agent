@@ -1,0 +1,18 @@
+POLICY: Insufficient Funds Failures
+
+Insufficient_funds indicates the customer's account lacked balance at time of charge.
+This is a soft decline — the customer's card is valid but temporarily unfunded.
+
+Recommended intervention:
+1. Wait 3 days before first retry (most customers receive salary/transfers within 1-3 days).
+2. If first retry fails: wait another 4 days, then retry once more.
+3. If second retry fails:
+   - Retail customers: Send friendly reminder email. Offer payment plan if amount > INR 5,000.
+   - SMB customers: Offer payment plan or EMI split automatically.
+   - Enterprise customers: Escalate to account manager within 24h.
+4. Maximum 3 automated retries. After third failure, offer payment plan or escalate.
+5. Never retry more frequently than once every 3 days — aggressive retrying
+   increases churn risk significantly.
+
+Note: Customers with 3+ consecutive insufficient_funds failures on different
+transactions are high churn risk. Escalate these to human review.

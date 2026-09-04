@@ -1,0 +1,6 @@
+chroma_db/
+output/
+__pycache__/
+*.pyc
+*.pyo
+.env

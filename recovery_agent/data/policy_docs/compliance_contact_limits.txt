@@ -1,0 +1,19 @@
+POLICY: Contact Frequency and Compliance Rules
+
+These rules apply to ALL recovery interventions regardless of failure type.
+Violation of these rules creates legal and reputational risk.
+
+Hard rules (non-negotiable):
+1. Do-Not-Contact (DNC) flag: If a customer has set a DNC flag, NO automated
+   or manual outreach is permitted. The only exception is sending a legally
+   required final notice (must be approved by legal team).
+2. Maximum 3 automated contacts per customer per week across all channels.
+3. No contact between 9:00 PM and 8:00 AM local customer time.
+4. No contact on national public holidays (India: Republic Day, Independence Day,
+   Gandhi Jayanti, all gazetted holidays).
+5. Customers who have filed a dispute or chargeback: HALT all recovery outreach
+   immediately. Route to dispute management only.
+6. Maximum outreach period: 14 days of automated outreach per recovery event.
+   After 14 days, escalate to human or close.
+
+All contacts must be logged in the audit trail with timestamp, channel, and outcome.

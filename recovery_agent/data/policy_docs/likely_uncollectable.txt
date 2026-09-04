@@ -1,0 +1,17 @@
+POLICY: Likely Uncollectable Invoices (>90 days past due)
+
+Invoices more than 90 days overdue with multiple failed contact attempts have
+a low probability of recovery without significant intervention.
+
+Before marking uncollectable, the following review is REQUIRED:
+1. Check if the customer has any active relationship with the business
+   (open orders, active subscriptions, recent support tickets).
+2. Check the total outstanding balance — if > INR 100,000, escalate to senior
+   management and legal before writing off.
+3. If the customer has responded to any contact in the last 30 days, make one
+   more structured offer: settlement at 70-80% of invoice value.
+4. If all above fail: mark as uncollectable, write off the amount in the
+   accounting system, and send a formal final notice to the customer.
+
+Recovery after write-off: If customer pays after write-off, treat as a payment
+reversal — do NOT re-open the invoice; create a new credit entry.
